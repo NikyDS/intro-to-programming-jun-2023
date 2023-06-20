@@ -8,20 +8,27 @@ public class StringCalculator
     {
         if(numbers == "")
         {
-            return _sum = 0;
+            return 0;
         }else if(numbers.Length == 1)
         {
-            return _sum = int.Parse(numbers);
+            return int.Parse(numbers);
         }
-        else
+        else if (numbers[0] != '/')
         {
             string[] multipleNumbers = numbers.Split(',','\n');
             foreach(string number in multipleNumbers)
             {
                 _sum += int.Parse(number);
             }
-            return _sum;
-
         }
+        else
+        {
+            string[] multipleNumbers = numbers[4..].Split(numbers[2]);
+            foreach (string number in multipleNumbers)
+            {
+                _sum += int.Parse(number);
+            }
+        }
+        return _sum;
     }
 }

@@ -61,7 +61,7 @@ public class StringCalculatorTests
     }
 
     [Theory]
-    [InlineData("//;\n1;2", 6)]
+    [InlineData("//;\n1;2", 3)]
     [InlineData("//:\n4:5:3", 12)]
     public void NewDelimeterDigit(string numbers, int expected)
     {
