@@ -5,8 +5,7 @@
         private readonly List<Player> _players = new(); //intention revealing than Dictionary<string, int>
         public void AddPlayer(string name, int score)
         {
-            
-            if(_players.Any(p => p.Name.Trim().ToLowerInvariant() == name.Trim().ToLowerInvariant())) 
+            if (PlayerExists(name))
             {
                 throw new PlayerAlreadyAddedToGameException();
             }
@@ -17,6 +16,11 @@
             //score some kind of list of players and their scores 
             //unless a player with that same name already exists. 
             //in that case, punch them in the nose. 
+        }
+
+        private bool PlayerExists(string name)
+        {
+            return _players.Any(p => p.Name.Trim().ToLowerInvariant() == name.Trim().ToLowerInvariant());
         }
     }
 }
