@@ -1,5 +1,5 @@
 ﻿namespace Games.Tests;
-public class ThinkingAboutTheGame
+public class ValidatingPlayersForABowlingGame
 {
     [Fact]
     public void DuplicateNamesAreNotAllowed()
@@ -15,5 +15,15 @@ public class ThinkingAboutTheGame
         Assert.Throws<PlayerAlreadyAddedToGameException>(() => game.AddPlayer("Jim", 200));
         Assert.Throws<PlayerAlreadyAddedToGameException>(() => game.AddPlayer("jim", 200));
         Assert.Throws<PlayerAlreadyAddedToGameException>(() => game.AddPlayer(" jim ", 200));
+    }
+
+    [Theory]
+    [InlineData(-1)]
+    [InlineData(301)]
+    public void InvalidScoresThrowAnException(int invalidScore)
+    {
+        var game = new BowlingGame();
+
+        Assert.Throws<InvalidBowlingScoreException>(()=> game.AddPlayer("Jim", invalidScore));
     }
 }

@@ -1,27 +1,36 @@
-﻿namespace Games
-{
-    public class BowlingGame
-    {
-        private readonly List<Player> _players = new(); //intention revealing than Dictionary<string, int>
-        public void AddPlayer(string name, int score)
-        {
-            if (PlayerExists(name))
-            {
-                throw new PlayerAlreadyAddedToGameException();
-            }
-            else
-            {
-                _players.Add(new Player(name, score));
-            }
-            //score some kind of list of players and their scores 
-            //unless a player with that same name already exists. 
-            //in that case, punch them in the nose. 
-        }
+﻿namespace Games;
 
-        private bool PlayerExists(string name)
+public class BowlingGame
+{
+    private readonly List<Player> _players = new(); //intention revealing than Dictionary<string, int>
+    public void AddPlayer(string name, int score)
+    {
+        GuardForValidScore(score);
+        GuardForPlayerAlreadyExisting(name);
+        _players.Add(new Player(name, score));
+    }
+
+    private void GuardForPlayerAlreadyExisting(string name)
+    {
+        if (PlayerExists(name))
         {
-            return _players.Any(p => p.Name.Trim().ToLowerInvariant() == name.Trim().ToLowerInvariant());
+            throw new PlayerAlreadyAddedToGameException();
         }
+    }
+
+    private static void GuardForValidScore(int score)
+    {
+        if (score < 0 || score > 300) { throw new InvalidBowlingScoreException(); }
+    }
+
+    private bool PlayerExists(string name)
+    {
+        return _players.Any(p => p.Name.Trim().ToLowerInvariant() == name.Trim().ToLowerInvariant());
+    }
+
+    internal List<Player> GetPlayers()
+    {
+        return _players;
     }
 }
 
