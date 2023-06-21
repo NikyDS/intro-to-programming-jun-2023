@@ -85,5 +85,7 @@ public class Collections
            
         }
 
+        Assert.Equal(2, scores.Count);
+
     }
 }

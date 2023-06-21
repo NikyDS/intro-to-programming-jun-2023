@@ -16,6 +16,6 @@ public class ThinkingAboutTheGame
 
         
         // Then / When
-      Assert.Throws<PlayerAlreadyAddedToGameException>(() => game.AddPlayer("Jim", 200));
+      Assert.Throws<PlayerAlreadyAddedToGameException>(() => game.AddPlayer(" jim ", 200));
     }
 }

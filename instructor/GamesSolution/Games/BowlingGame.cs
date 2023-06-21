@@ -2,21 +2,27 @@
 
 public class BowlingGame
 {
-
-    private readonly Dictionary<string, int> _scores = new();
+    // "Primitive Obsession"
+    private readonly List<Player> _players = new(); // intention revealing than Dictionary<string, int>
     
     public void AddPlayer(string name, int score)
     {
 
-        if(_scores.ContainsKey(name) )
+        if (PlayerExists(name))
         {
             throw new PlayerAlreadyAddedToGameException();
-        } else
-        {
-            _scores.Add(name, score);
         }
-       // store some kind of list of players and their scores
-       // unless a player with that same name already exists.
-       // in that case, punch them in the nose.
+        else
+        {
+            _players.Add(new Player(name, score));
+        }
+
+    }
+
+    private bool PlayerExists(string name)
+    {
+        return _players.Any(p => p.Name.Trim().ToLowerInvariant() == name.Trim().ToLowerInvariant());
     }
 }
+
+public record Player(string Name, int score);
