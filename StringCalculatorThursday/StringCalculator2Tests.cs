@@ -27,6 +27,6 @@ public class StringCalculator2Tests
     {
         _loggerMock.Setup(m => m.Write(It.IsAny<string>())).Throws(new Exception());
         _calculator.Add("99");
-
+        //It should call the web service with a message. 
     }
 }
