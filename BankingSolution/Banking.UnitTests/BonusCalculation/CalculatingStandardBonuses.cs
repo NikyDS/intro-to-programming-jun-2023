@@ -18,11 +18,11 @@ public class CalculatingStandardBonuses
     [Theory]
     [InlineData(100, 0)]
     [InlineData(200, 0)]
-    public void AccountsThatHaveBalanceBelowThresholdGetBonus(decimal amountToDeposit, decimal expectedBonus)
+    public void AccountsThatHaveBalanceBelowThresholdGetNoBonus(decimal amountToDeposit, decimal expectedBonus)
     {
         var bonusCalculator = new StandardBonusCalculator();
 
-        decimal bonus = bonusCalculator.CalculateBonusForDepositOn(1000.01m, amountToDeposit);
+        decimal bonus = bonusCalculator.CalculateBonusForDepositOn(5000.00M, amountToDeposit);
 
         Assert.Equal(expectedBonus, bonus);
     }
