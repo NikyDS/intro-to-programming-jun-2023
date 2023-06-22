@@ -1,4 +1,6 @@
-﻿namespace Banking.UnitTests.BankAccount;
+﻿using Banking.UnitTests.TestDoubles;
+
+namespace Banking.UnitTests.BankAccount;
 
 public class MakingDeposits
 {
@@ -7,7 +9,7 @@ public class MakingDeposits
     {
         //Given
         //If I have an account and I want to deposit 100
-        Account account = new Account();
+        Account account = new Account(new DummyBonusCalculator());
         decimal openingBalance = account.GetBalance();
         decimal amountToDeposit = 100M;
 

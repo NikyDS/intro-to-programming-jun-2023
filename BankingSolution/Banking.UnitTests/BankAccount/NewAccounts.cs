@@ -1,4 +1,6 @@
-﻿namespace Banking.UnitTests.BankAccount;
+﻿using Banking.UnitTests.TestDoubles;
+
+namespace Banking.UnitTests.BankAccount;
 
 public class NewAccounts
 {
@@ -6,7 +8,8 @@ public class NewAccounts
     public void NewAccountHaveCorrectBalance()
     {
         //Given
-        Account account = new Account();
+        //    Account account = new Account(new DummyBonusCalculator());
+        Account account = new Account(new Mock<ICanCalculateBonuses>().Object);
 
         //When
         decimal balance = account.GetBalance();

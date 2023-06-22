@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33801.468
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Banking.Domain", "Banking.Domain\Banking.Domain.csproj", "{E6F1C537-52F2-4998-B28B-DA93568A3FA7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Banking.Domain", "Banking.Domain\Banking.Domain.csproj", "{E6F1C537-52F2-4998-B28B-DA93568A3FA7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Banking.UnitTests", "Banking.UnitTests\Banking.UnitTests.csproj", "{DD28962E-417E-4180-8728-B4FBB3FE2DC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Banking.UnitTests", "Banking.UnitTests\Banking.UnitTests.csproj", "{DD28962E-417E-4180-8728-B4FBB3FE2DC5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankingKiosk", "BankingKiosk\BankingKiosk.csproj", "{F682346A-7ED4-4547-9D89-A3CAA2ADF0AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{DD28962E-417E-4180-8728-B4FBB3FE2DC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD28962E-417E-4180-8728-B4FBB3FE2DC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD28962E-417E-4180-8728-B4FBB3FE2DC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F682346A-7ED4-4547-9D89-A3CAA2ADF0AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F682346A-7ED4-4547-9D89-A3CAA2ADF0AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F682346A-7ED4-4547-9D89-A3CAA2ADF0AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F682346A-7ED4-4547-9D89-A3CAA2ADF0AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
