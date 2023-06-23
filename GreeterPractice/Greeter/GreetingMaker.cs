@@ -18,7 +18,8 @@ namespace Greeter
                     return response.ToUpper();
                 }
                 else if (names.Any(n => n.All(c => char.IsUpper(c))))
-                { 
+                {
+
                 }
                 return response;
             }
