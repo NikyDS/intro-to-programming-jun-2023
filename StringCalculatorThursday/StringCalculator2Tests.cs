@@ -5,11 +5,13 @@ public class StringCalculator2Tests
 {
     private readonly StringCalculator _calculator;
     private readonly Mock<ILogger> _loggerMock;
+    private readonly Mock<IWebService> _webServiceMock;
 
     public StringCalculator2Tests()
     {
         _loggerMock = new Mock<ILogger>();
-        _calculator = new StringCalculator(_loggerMock.Object);
+        _webServiceMock = new Mock<IWebService>();
+        _calculator = new StringCalculator(_loggerMock.Object, _webServiceMock.Object);
     }
 
     [Theory]
@@ -28,5 +30,18 @@ public class StringCalculator2Tests
         _loggerMock.Setup(m => m.Write(It.IsAny<string>())).Throws(new Exception());
         _calculator.Add("99");
         //It should call the web service with a message. 
+
+        //Verify that the web service was called with a message. 
+        _webServiceMock.Verify(m => m.Notify("Error writing to logger"), Times.Once);
+    }
+
+    [Fact]
+    public void IfThereIsNoExceptionTheWebServiceIsNotNotified()
+    {
+        _calculator.Add("99");
+        //It should call the web service with a message. 
+
+        //Verify that the web service was called with a message. 
+        _webServiceMock.Verify(m => m.Notify(It.IsAny<string>()), Times.Never);
     }
 }

@@ -12,7 +12,7 @@ public class StringCalculatorTests
 
     public StringCalculatorTests()
     {
-        this._calculator = new StringCalculator(new Mock<ILogger>().Object);
+        this._calculator = new StringCalculator(new Mock<ILogger>().Object, new Mock<IWebService>().Object);
     }
 
 
